@@ -1,0 +1,107 @@
+@CHARSET "UTF-8";
+/*------ dev、ut、nims_submenu共通css ------*/
+
+/*---------- whole ----------*/
+
+body {
+    background-color: #FFFFFF;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/*---------- header ----------*/
+
+nav {
+    padding-left: 40px;
+    margin-top: -9px;
+}
+
+nav img {
+    height: 10%;
+    width: 10%;
+    vertical-align: middle;
+    border: 0;
+}
+
+/*---------- header&footer common ----------*/
+
+.border {
+    padding: 0.5em 1em;
+    color: #808080;
+    background: #f8f8f8;
+    position: relative;
+    border-bottom: solid 1px #e7e7e7;
+    border-top: solid 1px #e7e7e7;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
+    border-radius: 4px;
+}
+
+/*---------- main ----------*/
+
+h1,
+h2 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h1 {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-size: 36px;
+    width: auto;
+}
+
+section {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+h2 {
+    font-size: 15px;
+    background-color: #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+ul {
+    width: auto;
+    border-top: solid 1px;
+    border-color: #f5f5f5;
+    padding: 15px 20px;
+    margin-top: auto;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+/*---------- list横並び ----------*/
+
+#system ul li,
+#manual ul li {
+    width: 45%;
+    display: inline-block;
+}
+
+#system ul li:first-child,
+#manual ul li:first-child {
+    height: 30px;
+}
+
+#system ul li a,
+#manual ul li a {
+    color: #337ab7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*---------- footer ----------*/
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 0;
+    padding: 10px 40px;
+}

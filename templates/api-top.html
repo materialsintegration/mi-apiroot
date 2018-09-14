@@ -1,0 +1,106 @@
+<!doctype html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- ビューポートの設定 -->
+    <meta name="viewport" content="width=divice-width, initial-scale=1">
+    <title>MIsystem API(s)</title>
+    <link rel="stylesheet" type="text/css" href="misubmenu.css">
+</head>
+
+<body>
+<H1>API サンドバックトップページ</H1>
+<HR>
+<H3>GPDB-API<BR></H3>
+<form action="/gpdb-api-v1" method="post">
+  <fieldset>
+  <legend>GPDB-API Version1.0</legend>
+  <div>
+    <label for="endpoint_path">エンドポイント:</label>
+    <input name="endpoint_path" id="endpoint_path" value="">
+  </div>
+        サイト:<select name="siteurl" id="siteurl">
+        {% for item in servers %}
+            <option value="{% print('%s'%item) %}">{% print('%s'%item) %}</option>
+        {% endfor %}
+        </select>
+  <div>
+    <button>gpdb-api version 1.0</button>
+  </div>
+  </fieldset>
+</form>
+<form action="/gpdb-api-v2" method="post">
+  <fieldset>
+  <legend>GPDB-API Version2.0</legend>
+  <div>
+    <label for="endpoint_path">エンドポイント:</label>
+    <input name="endpoint_path" id="endpoint_path" value="">
+  </div>
+        サイト:<select name="siteurl" id="siteurl">
+        {% for item in servers %}
+            <option value="{% print('%s'%item) %}">{% print('%s'%item) %}</option>
+        {% endfor %}
+        </select>
+  <div>
+    <button>gpdb-api version 2.0</button>
+  </div>
+  </fieldset>
+</form>
+※エンドポイントの与え方によっては反応が返ってくるまで時間がかかることがあります。
+<HR>
+<H3>Inventory-API<BR></H3>
+    <fieldset>
+      <legend>API参照操作</legend>
+      <form action="/inventory-api-ref" method="post">
+        <fieldset>
+        <legend>ユーザー情報</legend>
+        ユーザー名:<select name="token" id="user-token"><P>
+        {% for server in servers %}
+            {% for user in UserList[server] %}
+                <option value="{% print('%s'%user) %}">{% print('%s'%user) %}</option>
+            {% endfor %}
+        {% endfor %}
+        </select><BR>
+        サイト:<select name="siteurl" id="siteurl">
+        {% for item in servers %}
+            <option value="{% print('%s'%item) %}">{% print('%s'%item) %}</option>
+        {% endfor %}
+        </select>
+        </fieldset><P>
+        URL:<input type="text" name="api-url" id="api-url", size="100">
+        <button type="submit" class="btn btn-default">Get</button><BR>
+        ※マニュアルの/inventory-api/v3/以降を指定してください。
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>API更新操作</legend>
+      <form action="/inventory-api-upd" method="post">
+        <fieldset>
+        <legend>ユーザー情報</legend>
+        ユーザー名:<select name="token" id="user-token"><P>
+        {% for server in servers %}
+            {% for user in UserList[server] %}
+                <option value="{% print('%s'%user) %}">{% print('%s'%user) %}</option>
+            {% endfor %}
+        {% endfor %}
+        </select><BR>
+        サイト:<select name="siteurl" id="siteurl">
+        {% for item in servers %}
+            <option value="{% print('%s'%item) %}">{% print('%s'%item) %}</option>
+        {% endfor %}
+        </select>
+        </fieldset><P>
+        URL:<input type="text" name="api-url" id="api-url" size="100"><P>
+        <label for=request_body">リクエストBody(JSON形式):</label><BR>
+        <textarea id="reqest_body" name="request_body"></textarea><BR>
+        <button type="submit" class="btn btn-default">Post</button><BR>
+        ※未完成
+      </form>
+    </fieldset>
+</form>
+
+</body>
+
+</html>

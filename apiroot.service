@@ -1,0 +1,15 @@
+# Systemd unit file for docroot web-application instances.
+# 
+
+[Unit]
+Description=docroot using python3 Web Application Container
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/var/lib/mi-docroot/start.sh
+ExecStop=/var/lib/mi-docroot/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+
