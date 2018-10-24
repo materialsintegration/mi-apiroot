@@ -370,10 +370,10 @@ def inventory_api_ref():
     if ret is True:
         #res = res.json()
         #ret = dict_print(res, "")
-        #result = "URL = %s<P>"%weburl
-        #result += "userid = %s<P>"%userid
-        #result += "token = %s<P>"%token
-        #result += "<HR>"
+        result = "URL = %s<P>"%weburl
+        result += "userid = %s<P>"%userid
+        result += "token = %s<P>"%token
+        result += "<HR>"
         #result += json.dumps(res, indent=2)
         #result += "<HR>"
         #for item in ret:
