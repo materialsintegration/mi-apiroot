@@ -361,23 +361,25 @@ def inventory_api_ref():
     print("token = %s"%UserList[server][userid].split(":")[1])
     token = UserList[server][userid].split(":")[1]
 
-    weburl = server + "/inventory-api/v3/" + apiurl
+    weburl = server + "/inventory-api/v%s/"%VersionList[server]["version"] + apiurl
+    print("URL = %s"%weburl)
     headers = {'Authorization': 'Bearer ' + token,
                'Content-Type': 'application/json',
                'Accept': 'application/json'}
     ret, res = InventoryAPI(token, weburl, headers)
 
     if ret is True:
-        res = res.json()
-        ret = dict_print(res, "")
+        #res = res.json()
+        #ret = dict_print(res, "")
         result = "URL = %s<P>"%weburl
         result += "userid = %s<P>"%userid
         result += "token = %s<P>"%token
         result += "<HR>"
-        result += json.dumps(res, indent=2)
-        result += "<HR>"
-        for item in ret:
-            result += item + "<BR>"
+        #result += json.dumps(res, indent=2)
+        #result += "<HR>"
+        #for item in ret:
+        #    result += item + "<BR>"
+        result += json.dumps(res.json(), ensure_ascii=False, indent=2).replace(" ", "&nbsp;").replace("\n", "<BR>")
     else:
         result = res
 

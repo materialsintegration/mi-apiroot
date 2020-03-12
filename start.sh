@@ -1,11 +1,11 @@
 #!/bin/sh
 
-exec="python3.6 docroot.py $1 $2 >> /var/log/docroot.log 2>&1 &"
+exec="/usr/local/python3.6.2/bin/python3.6 apiroot.py $1 $2 >> /var/log/apiroot.log 2>&1 &"
 
-cd /var/lib/mi-docroot
-echo -n $"Stating mi-docroot: "
+cd /var/lib/mi-apiroot
+echo -n $"Stating mi-apiroot: "
 eval $exec
 rv=$?
 echo
 [ $rv -eq 0 ]
-pids=`ps -ax | grep python3.6 | grep docroot | awk '{print $1}'`
+pids=`ps aux | grep python3.6 | grep apiroot | awk '{print $1}'`
